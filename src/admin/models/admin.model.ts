@@ -8,9 +8,7 @@ interface IAdminCreationAttr {
     phone_number: string;
     email: string;
     hashed_password: string;
-    is_active: boolean;
     activation_link: string;
-    is_creator: boolean;
     hashed_refresh_token: string;
 }
 
@@ -24,7 +22,7 @@ export class Admin extends Model<Admin, IAdminCreationAttr> {
         primaryKey: true
     })
     id: number;
-    
+
     @Column({
         type: DataType.STRING,
         allowNull: false
