@@ -3,6 +3,8 @@ import { AdminModule } from './admin/admin.module';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Admin } from './admin/models/admin.model';
+import { JwtModule } from '@nestjs/jwt';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ envFilePath: ".env", isGlobal: true }),
@@ -20,7 +22,10 @@ import { Admin } from './admin/models/admin.model';
     sync: { alter: true },
     logging: true
   }),
-    AdminModule],
+    AdminModule,
+    JwtModule,
+    MailModule
+  ],
   controllers: [],
   providers: [],
 })
