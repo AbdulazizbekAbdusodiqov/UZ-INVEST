@@ -3,14 +3,17 @@ import { AdminService } from './admin.service';
 import { AdminController } from './admin.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Admin } from './models/admin.model';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule, JwtService } from '@nestjs/jwt';
+import { MailService } from '../mail/mail.service';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports:[
     JwtModule.register({global:true}),
-    SequelizeModule.forFeature([Admin])
+    SequelizeModule.forFeature([Admin]),
+    MailModule
   ],
   controllers: [AdminController],
-  providers: [AdminService],
+  providers: [AdminService,JwtService, MailService ],
 })
 export class AdminModule {}

@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import * as bcrypt from 'bcrypt'
@@ -6,13 +6,15 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Admin } from './models/admin.model';
 import * as uuid from 'uuid'
 import { JwtService } from '@nestjs/jwt';
+import { MailService } from '../mail/mail.service';
 
 @Injectable()
 export class AdminService {
 
   constructor(
     @InjectModel(Admin) private readonly adminModel: typeof Admin,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private readonly mailService: MailService
   ) { }
 
   async create(createAdminDto: CreateAdminDto) {
@@ -29,6 +31,13 @@ export class AdminService {
     const tokens = await this.getToken(admin)
     admin.hashed_refresh_token = await bcrypt.hash(tokens.refresh_token, 7)
     await admin.save()
+
+    try {
+      await this.mailService.sendAdminMail(admin);
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException("Xat yuborishda xatolik")
+    }
 
     const response = {
       message: "admin created",
@@ -57,7 +66,7 @@ export class AdminService {
   async getToken(admin: Admin) {
     const payload = {
       id: admin.id,
-      is_active: admin.is_active,
+      role: "admin",
       is_creator: admin.is_creator,
       email: admin.email
     }
