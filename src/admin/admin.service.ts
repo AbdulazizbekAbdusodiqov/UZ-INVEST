@@ -49,19 +49,23 @@ export class AdminService {
   }
 
   findAll() {
-    return `This action returns all admin`;
+    return this.adminModel.findAll()
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} admin`;
+    return this.adminModel.findByPk(id)
   }
 
-  update(id: number, updateAdminDto: UpdateAdminDto) {
-    return `This action updates a #${id} admin`;
+  async update(id: number, updateAdminDto: UpdateAdminDto) {
+    const admin = await this.adminModel.update(updateAdminDto, {
+      where:{id},
+      returning : true
+    })[1][0]
+    return admin
   }
 
   remove(id: number) {
-    return `This action removes a #${id} admin`;
+    return this.adminModel.destroy({where:{id}})
   }
   async getToken(admin: Admin) {
     const payload = {
@@ -84,5 +88,31 @@ export class AdminService {
       access_token: accessToken,
       refresh_token: refreshToken
     }
+  }
+  async activate(link: string) {
+
+    if (!link) {
+      throw new BadRequestException("Activation link not found")
+    }
+    const updateAdmin = await this.adminModel.update(
+      { is_active: true },
+      {
+        where: {
+          activation_link: link,
+          is_active: false
+        },
+        returning: true
+      },
+    )
+
+    if (!updateAdmin[1][0]) {
+      throw new BadRequestException("User already activates")
+    }
+    const response = {
+      message: "User activated successfully",
+      admin: updateAdmin[1][0].is_active
+    }
+
+    return response
   }
 }

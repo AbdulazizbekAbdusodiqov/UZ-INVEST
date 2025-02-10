@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AdminService } from './admin.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
+import { link } from 'fs';
 
 @Controller('admin')
 export class AdminController {
@@ -31,4 +32,11 @@ export class AdminController {
   remove(@Param('id') id: string) {
     return this.adminService.remove(+id);
   }
+  
+
+  @Get('activate/:link')
+  activate(@Param('link') link: string) {
+    return this.adminService.activate(link);
+  }
+
 }
