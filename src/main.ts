@@ -8,7 +8,7 @@ async function start() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe());
-
+  app.setGlobalPrefix('api');  
   const config = new DocumentBuilder()
     .setTitle("UZ-INVEST")
     .setVersion("v-01")
@@ -25,7 +25,7 @@ async function start() {
   await app.listen(process.env.PORT ?? 3001, () => {
     console.log("\n\n + ====================================================================== +");
     console.log(`| |                                                                      | | `);
-    console.log(`| | 🚀             Server started at: http://localhost:${process.env.PORT}           🚀 | | `);
+    console.log(`| | 🚀          Server started at: http://localhost:${process.env.PORT}/api          🚀 | | `);
     console.log(`| |                                                                      | | `);
     console.log(`| | 📚  Swagger API documentation at: http://localhost:${process.env.PORT}/api/docs  📚 | |`);
     console.log(`| |                                                                      | | `);

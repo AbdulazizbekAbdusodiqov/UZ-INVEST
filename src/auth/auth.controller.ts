@@ -22,8 +22,8 @@ export class AuthController {
     return this.authService.signUp(createUserDto)
   }
 
-  @UseGuards(SuperAdminGuard)
-  @UseGuards(AdminGuard)
+  // @UseGuards(SuperAdminGuard)
+  // @UseGuards(AdminGuard)
   @ApiOperation({ summary: "Admin ro'yxatdan o'tkazish" })
   @Post('/admin/sign-up')
   adminSignUp(@Body() createAdminDto: CreateAdminDto) {
