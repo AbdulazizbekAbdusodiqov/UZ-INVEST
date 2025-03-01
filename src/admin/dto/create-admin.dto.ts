@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import {IsEmail, IsString, Validate } from "class-validator";
+import {IsEmail, IsString, MinLength, Validate } from "class-validator";
 import { IsMultiCountryPhoneNumber } from "../../decorators/isPhoneNumber.decoration";
 
 export class CreateAdminDto {
@@ -38,6 +38,7 @@ export class CreateAdminDto {
     @ApiProperty({
         example: "kuchli_parol"
     })
+    @MinLength(4)
     password: string;
     @ApiProperty({
         example: "kuchli_parol"

@@ -15,5 +15,6 @@ import { MailModule } from '../mail/mail.module';
   ],
   controllers: [AdminController],
   providers: [AdminService,JwtService, MailService ],
+  exports:[AdminService]
 })
 export class AdminModule {}

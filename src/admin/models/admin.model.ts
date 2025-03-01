@@ -80,6 +80,6 @@ export class Admin extends Model<Admin, IAdminCreationAttr> {
         type: DataType.STRING,
         defaultValue: null
     })
-    hashed_refresh_token: string;
+    hashed_refresh_token: string | null;
 
 }

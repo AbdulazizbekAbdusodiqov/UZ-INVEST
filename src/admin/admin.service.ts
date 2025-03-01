@@ -24,8 +24,7 @@ export class AdminService {
     }
 
     const hashed_password = await bcrypt.hash(createAdminDto.password, 7)
-    const activation_link = uuid.v4()
-
+    const activation_link = await uuid.v4()
 
     const admin = await this.adminModel.create({ ...createAdminDto, hashed_password, activation_link, hashed_refresh_token: '' })
     const tokens = await this.getToken(admin)
@@ -33,10 +32,10 @@ export class AdminService {
     await admin.save()
 
     try {
-      await this.mailService.sendAdminMail(admin);
+      await this.mailService.sendMail(admin);
     } catch (error) {
       console.log(error);
-      throw new InternalServerErrorException("Xat yuborishda xatolik")
+      throw new InternalServerErrorException("Xabar yuborishda xatolik")
     }
 
     const response = {
@@ -56,6 +55,19 @@ export class AdminService {
     return this.adminModel.findByPk(id)
   }
 
+  findByEmail(email: string) {
+    return this.adminModel.findOne({ where: { email } });
+  }
+  async updateRefreshToken(id: number, hashed_refresh_token: string | null) {
+    const updatedAdmin = await this.adminModel.update(
+      { hashed_refresh_token },
+      {
+        where: { id }
+      }
+    );
+
+    return updatedAdmin
+  }
   async update(id: number, updateAdminDto: UpdateAdminDto) {
     const admin = await this.adminModel.update(updateAdminDto, {
       where:{id},
@@ -110,7 +122,7 @@ export class AdminService {
     }
     const response = {
       message: "User activated successfully",
-      admin: updateAdmin[1][0].is_active
+      is_active: updateAdmin[1][0].is_active
     }
 
     return response

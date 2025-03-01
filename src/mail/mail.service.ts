@@ -7,32 +7,19 @@ export class MailService {
 
     constructor(private mailerService: MailerService) { }
 
-    async sendAdminMail(admin:Admin) {
-        const url = `${process.env.API_URL}/admin/activate/${admin.activation_link}`;
+    async sendMail(user:any, role:string = "admin") {
+        const url = `${process.env.API_URL}/${role}/activate/${user.activation_link}`;
         console.log(url);
         await this.mailerService.sendMail({
-            to: admin.email,
+            to: user.email,
             subject: `Welcome to UZ-INVEST`,
             template: "./confirm",
             context: {
-                name: admin.first_name,
+                name: user.first_name,
                 url
             },
         });
         console.log(url);
     }
-    // async sendUserMail(admin:Admin) {
-    //     const url = `${process.env.API_URL}/user/activate/${admin.activation_link}`;
-    //     console.log(url);
-    //     await this.mailerService.sendMail({
-    //         to: admin.email,
-    //         subject: `Welcome to UZ-INVEST`,
-    //         template: "./confirm",
-    //         context: {
-    //             name: admin.first_name,
-    //             url
-    //         },
-    //     });
-    //     console.log(url);
-    // }
+
 }

@@ -5,6 +5,9 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Admin } from './admin/models/admin.model';
 import { JwtModule } from '@nestjs/jwt';
 import { MailModule } from './mail/mail.module';
+import { AuthModule } from './auth/auth.module';
+import { User } from './users/models/user.model';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ envFilePath: ".env", isGlobal: true }),
@@ -17,6 +20,7 @@ import { MailModule } from './mail/mail.module';
     database: process.env.POSTGRES_DB,
     models: [
       Admin,
+      User
     ],
     autoLoadModels: true,
     sync: { alter: true },
@@ -24,7 +28,9 @@ import { MailModule } from './mail/mail.module';
   }),
     AdminModule,
     JwtModule,
-    MailModule
+    MailModule,
+    AuthModule,
+    UsersModule
   ],
   controllers: [],
   providers: [],

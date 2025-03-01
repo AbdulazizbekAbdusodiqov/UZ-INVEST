@@ -19,7 +19,7 @@ import {HandlebarsAdapter} from "@nestjs-modules/mailer/dist/adapters/handlebars
           },
         },
         defaults: {
-          from: `"Skidkachi"~${config.get<string>('SMTP_USER')}`
+          from: `"Uz-Invest"~${config.get<string>('SMTP_USER')}`
         },
         template: {
           dir: join(__dirname, "templates"),
