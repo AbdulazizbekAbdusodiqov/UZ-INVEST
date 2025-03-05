@@ -8,6 +8,7 @@ async function start() {
   try {
     const PORT = process.env.PORT || 3030;
     const app = await NestFactory.create(AppModule);
+    app.setGlobalPrefix("/api")
     app.use(cookieParser());
     app.useGlobalPipes(new ValidationPipe());
     app.enableCors({
@@ -41,7 +42,7 @@ async function start() {
     await app.listen(PORT, () => {
       console.log("\n\n + ====================================================================== +");
       console.log(`| |                                                                      | | `);
-      console.log(`| | 🚀             Server started at: http://localhost:${PORT}           🚀 | | `);
+      console.log(`| | 🚀          Server started at: http://localhost:${PORT}/api          🚀 | | `);
       console.log(`| |                                                                      | | `);
       console.log(`| | 📚  Swagger API documentation at: http://localhost:${PORT}/api/docs  📚 | |`);
       console.log(`| |                                                                      | | `);
