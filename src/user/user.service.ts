@@ -1,13 +1,18 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
 import { PrismaService } from "../prisma/prisma.service";
 import * as bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+import { JwtService } from "@nestjs/jwt";
+import { User } from "@prisma/client";
+import { Tokens } from "../types";
+import { CreateUserDto, Role, UpdateUserDto } from "./dto";
 
 @Injectable()
 export class UserService {
-    constructor(private readonly prismaService: PrismaService) {}
+    constructor(
+        private readonly prismaService: PrismaService,
+        private readonly jwtService: JwtService
+    ) {}
 
     async create(createUserDto: CreateUserDto) {
         const { password, confirm_password, role, ...data } = createUserDto;
@@ -32,9 +37,14 @@ export class UserService {
     }
 
     findOne(id: number) {
-        return this.prismaService.user.findUnique({ where: { id } });
+        return this.prismaService.user.findUnique({ where: { id:+id } });
     }
-
+    async findByEmail(email: string) {
+        const user = await this.prismaService.user.findUnique({
+            where: { email },
+        });
+        return user;
+    }
     update(id: number, updateUserDto: UpdateUserDto) {
         const { role, ...data } = updateUserDto;
         return this.prismaService.user.update({
@@ -44,6 +54,38 @@ export class UserService {
     }
 
     remove(id: number) {
-        return this.prismaService.user.delete({where:{id}})
+        return this.prismaService.user.delete({ where: { id } });
+    }
+
+    async updateRefreshToken(id: number, hashed_refresh_token: string | null) {
+        const updatedUser = await this.prismaService.user.update({
+            where: { id },
+            data: { hashed_refresh_token },
+        });
+
+        return updatedUser;
+    }
+
+    async getTokens(user: User): Promise<Tokens> {
+        const payload = {
+            id: user.id,
+            email: user.email,
+            role: user.role
+        };
+        const [accessToken, refreshToken] = await Promise.all([
+            this.jwtService.signAsync(payload, {
+                secret: process.env.ACCESS_TOKEN_KEY,
+                expiresIn: process.env.ACCESS_TOKEN_TIME,
+            }),
+            this.jwtService.signAsync(payload, {
+                secret: process.env.REFRESH_TOKEN_KEY,
+                expiresIn: process.env.REFRESH_TOKEN_TIME,
+            }),
+        ]);
+
+        return {
+            access_token: accessToken,
+            refresh_token: refreshToken,
+        };
     }
 }
