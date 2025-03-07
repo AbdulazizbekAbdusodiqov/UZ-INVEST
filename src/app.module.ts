@@ -4,6 +4,7 @@ import { PrismaModule } from "./prisma/prisma.module";
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { ProfitTypeModule } from './profit_type/profit_type.module';
 
 @Module({
     imports: [
@@ -12,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
         AdminModule,
         UserModule,
         AuthModule,
+        ProfitTypeModule,
     ],
     controllers: [],
     providers: [],
