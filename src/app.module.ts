@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfitTypeModule } from './profit_type/profit_type.module';
 import { ProjectTypeModule } from './project_type/project_type.module';
+import { AwsUploadModule } from './upload/aws_upload.module';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { ProjectTypeModule } from './project_type/project_type.module';
         AuthModule,
         ProfitTypeModule,
         ProjectTypeModule,
+        AwsUploadModule,
     ],
     controllers: [],
     providers: [],
