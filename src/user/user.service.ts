@@ -35,6 +35,12 @@ export class UserService {
     findAll() {
         return this.prismaService.user.findMany();
     }
+    findAllInvestor() {
+        return this.prismaService.user.findMany({where:{role:"INVESTOR"}, include:{Invesment:true}});
+    }
+    findAllEntrepreneur() {
+        return this.prismaService.user.findMany({where:{role:"ENTREPRENEUR"}});
+    }
 
     findOne(id: number) {
         return this.prismaService.user.findUnique({ where: { id:+id } });
@@ -46,10 +52,9 @@ export class UserService {
         return user;
     }
     update(id: number, updateUserDto: UpdateUserDto) {
-        const { role, ...data } = updateUserDto;
         return this.prismaService.user.update({
             where: { id },
-            data: { ...data, role: String(role) },
+            data: updateUserDto,
         });
     }
 

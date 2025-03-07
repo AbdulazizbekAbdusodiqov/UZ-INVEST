@@ -26,10 +26,11 @@ model Admin {
   hashed_password      String
   hashed_refresh_token String?
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@map("admin")
 }
-
-
 
 model User {
   id                   Int     @id @default(autoincrement())
@@ -44,7 +45,47 @@ model User {
   hashed_password      String
   hashed_refresh_token String?
 
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Invesment Invesment[]
+
   @@map("user")
 }
 
+model ProjectType {
+  id          Int      @id @default(autoincrement())
+  neme        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
+  @@map("project_type")
+}
+
+model ProfitType {
+  id          Int    @id @default(autoincrement())
+  neme        String
+  description String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("profit_type")
+}
+
+model Invesment {
+  id         Int      @id @default(autoincrement())
+  investorId Int
+  amount     Float
+  investor   User     @relation(fields: [investorId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("invesment")
+}
+
+model PaymentMethod {
+  id             Int              @id @default(autoincrement())
+  name           String
+  @@map("payment_method")
+}
