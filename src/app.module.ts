@@ -5,6 +5,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfitTypeModule } from './profit_type/profit_type.module';
+import { ProjectTypeModule } from './project_type/project_type.module';
 
 @Module({
     imports: [
@@ -14,6 +15,7 @@ import { ProfitTypeModule } from './profit_type/profit_type.module';
         UserModule,
         AuthModule,
         ProfitTypeModule,
+        ProjectTypeModule,
     ],
     controllers: [],
     providers: [],
