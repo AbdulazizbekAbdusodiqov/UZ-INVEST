@@ -36,10 +36,10 @@ export class UserService {
         return this.prismaService.user.findMany();
     }
     findAllInvestor() {
-        return this.prismaService.user.findMany({where:{role:"INVESTOR"}, include:{Invesment:true}});
+        return this.prismaService.user.findMany({where:{role:"INVESTOR"}, include:{Invesment:true, Bids:true}});
     }
     findAllEntrepreneur() {
-        return this.prismaService.user.findMany({where:{role:"ENTREPRENEUR"}});
+        return this.prismaService.user.findMany({where:{role:"ENTREPRENEUR"}, include:{Project:true}});
     }
 
     findOne(id: number) {

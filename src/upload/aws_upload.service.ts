@@ -10,7 +10,6 @@ export class AwsFileService {
     });
 
     async uploadFile(file) {
-        console.log(file);
         const { originalname } = file;
 
         return await this.s3_upload(

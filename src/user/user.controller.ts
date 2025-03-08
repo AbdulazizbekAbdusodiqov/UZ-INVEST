@@ -1,11 +1,10 @@
 import { Controller, Get, Body, Patch, Param, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './dto';
-import { AwsFileService } from '../upload/aws_upload.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService, private readonly awsUploadService : AwsFileService) {}
+  constructor(private readonly userService: UserService) {}
 
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
