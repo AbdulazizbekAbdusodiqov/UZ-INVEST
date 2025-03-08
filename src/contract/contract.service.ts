@@ -66,7 +66,7 @@ export class ContractService {
     }
 
     async findAll() {
-        return await this.prismaService.contract.findMany();
+        return await this.prismaService.contract.findMany({include:{bid:true, entrepreneur:true, investor:true,project:true, contractCondition:true, profitType:true}});
     }
 
     async findOne(id: number) {
