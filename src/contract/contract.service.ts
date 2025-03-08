@@ -14,7 +14,7 @@ export class ContractService {
     async create(createContractDto: CreateContractDto, condation_file: any) {
         try {
             console.log(createContractDto);
-            
+
             const {
                 investorId,
                 projectId,
@@ -29,18 +29,21 @@ export class ContractService {
                 ...data
             } = createContractDto;
 
-            const entrepreneurExists = await this.prismaService.user.findUnique({
-                where: { id: +entrepreneurId, role: Role.ENTREPRENEUR },
-            });
+            const entrepreneurExists = await this.prismaService.user.findUnique(
+                {
+                    where: { id: +entrepreneurId, role: Role.ENTREPRENEUR },
+                }
+            );
 
             if (!entrepreneurExists) {
-                throw new BadRequestException('Entrepreneur does not exist');
+                throw new BadRequestException("Entrepreneur does not exist");
             }
             let resultCondationFile: any;
-            resultCondationFile = await this.awsFileService.uploadFile(condation_file);
+            resultCondationFile =
+                await this.awsFileService.uploadFile(condation_file);
 
             if (!resultCondationFile) {
-                throw new BadRequestException('File upload failed');
+                throw new BadRequestException("File upload failed");
             }
 
             return this.prismaService.contract.create({
@@ -61,12 +64,22 @@ export class ContractService {
             });
         } catch (error) {
             console.log(error);
-            throw new BadRequestException('Bad Request');
+            throw new BadRequestException("Bad Request");
         }
     }
 
     async findAll() {
-        return await this.prismaService.contract.findMany({include:{bid:true, entrepreneur:true, investor:true,project:true, contractCondition:true, profitType:true}});
+        return await this.prismaService.contract.findMany({
+            include: {
+                bid: true,
+                entrepreneur: true,
+                investor: true,
+                project: true,
+                contractCondition: true,
+                profitType: true,
+                Payment:true
+            },
+        });
     }
 
     async findOne(id: number) {
