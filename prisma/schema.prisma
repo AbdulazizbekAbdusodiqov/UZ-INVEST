@@ -20,9 +20,9 @@ model Admin {
   email                String  @unique
   phone_number         String
   tg_link              String
-  is_active            Boolean @default(true)
+  is_active            Boolean @default(false)
   is_creator           Boolean @default(true)
-  activation_link      String
+  activation_link      String  @unique
   hashed_password      String
   hashed_refresh_token String?
 
@@ -40,8 +40,8 @@ model User {
   phone_number         String
   role                 String
   tg_link              String
-  is_active            Boolean @default(true)
-  activation_link      String
+  is_active            Boolean @default(false)
+  activation_link      String  @unique
   hashed_password      String
   hashed_refresh_token String?
 

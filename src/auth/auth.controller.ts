@@ -47,7 +47,10 @@ export class AuthController {
   ): Promise<ResponseFields>{
     return this.authService.refreshToken(userId, refreshToken, res)
   }
-  
+  @Get('activate/:link')
+  activate(@Param('link') link:string){
+    return this.authService.activate(link)
+  }
   //=================================  For Admin ============================================
   
 

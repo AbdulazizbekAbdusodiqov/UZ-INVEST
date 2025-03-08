@@ -12,6 +12,7 @@ import { BidsModule } from './bids/bids.module';
 import { ContractModule } from './contract/contract.module';
 import { ContractConditionModule } from './contract_condition/contract_condition.module';
 import { PaymentModule } from './payment/payment.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
     imports: [
@@ -28,6 +29,7 @@ import { PaymentModule } from './payment/payment.module';
         ContractModule,
         ContractConditionModule,
         PaymentModule,
+        MailModule,
     ],
     controllers: [],
     providers: [],

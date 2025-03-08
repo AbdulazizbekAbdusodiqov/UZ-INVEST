@@ -1,4 +1,10 @@
-import { BadRequestException, ForbiddenException, Injectable, InternalServerErrorException, UnauthorizedException } from "@nestjs/common";
+import {
+    BadRequestException,
+    ForbiddenException,
+    Injectable,
+    InternalServerErrorException,
+    UnauthorizedException,
+} from "@nestjs/common";
 import { UserService } from "../user/user.service";
 import { AdminService } from "../admin/admin.service";
 import { JwtService } from "@nestjs/jwt";
@@ -6,8 +12,9 @@ import { PrismaService } from "../prisma/prisma.service";
 import { CreateUserDto, UserSignInDto } from "../user/dto";
 import { ResponseFields } from "../types";
 import { Response } from "express";
-import * as bcrypt from "bcrypt"
+import * as bcrypt from "bcrypt";
 import { AdminSignInDto, CreateAdminDto } from "../admin/dto";
+import { MailService } from "../mail/mail.service";
 
 @Injectable()
 export class AuthService {
@@ -15,6 +22,7 @@ export class AuthService {
         private readonly userService: UserService,
         private readonly adminService: AdminService,
         private readonly jwtService: JwtService,
+        private readonly mailService: MailService,
         private readonly prismaService: PrismaService
     ) {}
     async signUp(createUserDto: CreateUserDto) {
@@ -25,16 +33,25 @@ export class AuthService {
             throw new BadRequestException("Such a user exists");
         }
         const newUser = await this.userService.create(createUserDto);
-
+        try {
+            await this.mailService.sendMail(newUser);
+        } catch (error) {
+            console.log(error);
+            throw new InternalServerErrorException("Error sending message");
+        }
         const response = {
-            message: "Congratulations, you have joined the system",
+            message:
+                "Congratulations, you have joined the system. We have sent an activation message to your email.",
             userId: newUser.id,
         };
 
         return response;
     }
 
-    async signIn(userSignInDto: UserSignInDto, res: Response):Promise<ResponseFields> {
+    async signIn(
+        userSignInDto: UserSignInDto,
+        res: Response
+    ): Promise<ResponseFields> {
         const { email, password } = userSignInDto;
 
         if (!email || !password) {
@@ -46,7 +63,7 @@ export class AuthService {
         if (!user) {
             throw new UnauthorizedException("Invalid Email or password");
         }
-        if(user.role != userSignInDto.role){
+        if (user.role != userSignInDto.role) {
             throw new UnauthorizedException("Invalid Email or password");
         }
         const validPassword = await bcrypt.compare(
@@ -57,7 +74,7 @@ export class AuthService {
             throw new UnauthorizedException("Invalid Email or password");
         }
         if (!user.is_active) {
-            throw new UnauthorizedException('user is not activate')
+            throw new UnauthorizedException("user is not activate");
         }
         const tokens = await this.userService.getTokens(user);
 
@@ -81,128 +98,140 @@ export class AuthService {
 
         return response;
     }
-    
-    async signOut(refreshToken : string, res: Response){
-        const userData =await this.jwtService.verify(refreshToken,{
+
+    async signOut(refreshToken: string, res: Response) {
+        const userData = await this.jwtService.verify(refreshToken, {
             secret: process.env.REFRESH_TOKEN_KEY,
         });
-        if(!userData){
-            throw new ForbiddenException("User not verified")
+        if (!userData) {
+            throw new ForbiddenException("User not verified");
         }
         const hashed_refresh_token = null;
         await this.userService.updateRefreshToken(
             userData.id,
             hashed_refresh_token
-        )
+        );
 
         res.clearCookie("refresh_token");
 
         const response = {
-            message:"User logged out successfully"
-        }
-        return response
+            message: "User logged out successfully",
+        };
+        return response;
     }
 
-    async refreshToken(userId:number, refreshToken : string, res: Response): Promise<ResponseFields>{
+    async refreshToken(
+        userId: number,
+        refreshToken: string,
+        res: Response
+    ): Promise<ResponseFields> {
         const decodedToken = await this.jwtService.decode(refreshToken);
 
-        if(userId != decodedToken["id"]){
+        if (userId != decodedToken["id"]) {
             throw new BadRequestException("Not allowed");
         }
-        
-        const user = await this.userService.findOne(userId)
-        if(!user || !user.hashed_refresh_token){
+
+        const user = await this.userService.findOne(userId);
+        if (!user || !user.hashed_refresh_token) {
             throw new BadRequestException("user not found");
         }
 
         const tokenMatch = await bcrypt.compare(
             refreshToken,
             user.hashed_refresh_token
-        )
+        );
 
-        if(!tokenMatch){
-            throw new ForbiddenException("Forbidden")
+        if (!tokenMatch) {
+            throw new ForbiddenException("Forbidden");
         }
 
-        const tokens = await this.userService.getTokens(user)
+        const tokens = await this.userService.getTokens(user);
 
-        const hashed_refresh_token = await bcrypt.hash(tokens.refresh_token, 7)
+        const hashed_refresh_token = await bcrypt.hash(tokens.refresh_token, 7);
 
-        await this.userService.updateRefreshToken(user.id, hashed_refresh_token);
+        await this.userService.updateRefreshToken(
+            user.id,
+            hashed_refresh_token
+        );
 
         res.cookie("refresh_token", tokens.refresh_token, {
             maxAge: +process.env.COOKIE_TIME!,
-            httpOnly:true
-        })
+            httpOnly: true,
+        });
         const response = {
             id: user.id,
-            access_token : tokens.access_token
-        }
-        return response
+            access_token: tokens.access_token,
+        };
+        return response;
     }
 
     //===============================| For Admin |==========================================//
 
     async adminSignUp(createAdminDto: CreateAdminDto) {
-        const condiate = await this.adminService.findByEmail(createAdminDto.email);
+        const condiate = await this.adminService.findByEmail(
+            createAdminDto.email
+        );
         if (condiate) {
-            throw new BadRequestException("Bunday Admin mavjud")
+            throw new BadRequestException("Bunday Admin mavjud");
         }
         const newAdmin = await this.adminService.create(createAdminDto);
 
         const response = {
             message: "Tabriklayman tizimga qo'shildingin",
-            adminId: newAdmin.id
-        }
+            adminId: newAdmin.id,
+        };
 
-        return response
+        return response;
     }
 
-
-    async adminSignIn(adminSignInDto: AdminSignInDto, res: Response):Promise<ResponseFields> {
-        
-        const { email, password } = adminSignInDto
+    async adminSignIn(
+        adminSignInDto: AdminSignInDto,
+        res: Response
+    ): Promise<ResponseFields> {
+        const { email, password } = adminSignInDto;
 
         if (!email || !password) {
-            throw new BadRequestException()
+            throw new BadRequestException();
         }
 
-        const admin = await this.adminService.findByEmail(email)
+        const admin = await this.adminService.findByEmail(email);
 
         if (!admin) {
-            throw new UnauthorizedException('Invalid Email or password')
+            throw new UnauthorizedException("Invalid Email or password");
         }
         if (!admin.is_active) {
-            throw new UnauthorizedException('admin is not activate')
+            throw new UnauthorizedException("admin is not activate");
         }
-        const validPassword = await bcrypt.compare(adminSignInDto.password, admin.hashed_password)
+        const validPassword = await bcrypt.compare(
+            adminSignInDto.password,
+            admin.hashed_password
+        );
         if (!validPassword) {
-            throw new UnauthorizedException('Invalid Email or password')
+            throw new UnauthorizedException("Invalid Email or password");
         }
 
         const tokens = await this.adminService.getToken(admin);
 
-        const hashed_refresh_token = await bcrypt.hash(tokens.refresh_token, 7)
+        const hashed_refresh_token = await bcrypt.hash(tokens.refresh_token, 7);
 
         const updateAdmin = await this.adminService.updateRefreshToken(
             admin.id,
             hashed_refresh_token
-        )
+        );
         if (!updateAdmin) {
-            throw new InternalServerErrorException("Tokenni saqlashda xatolik")
+            throw new InternalServerErrorException("Tokenni saqlashda xatolik");
         }
         res.cookie("refresh_token", tokens.refresh_token, {
             maxAge: +process.env.COOKIE_TIME!,
-            httpOnly: true
-        })
+            httpOnly: true,
+        });
         const response = {
             id: admin.id,
-            access_token: tokens.access_token
+            access_token: tokens.access_token,
         };
 
-        return response
+        return response;
     }
-
 
     async AdminSignOut(refreshToken: string, res: Response) {
         const adminData = await this.jwtService.verify(refreshToken, {
@@ -225,7 +254,11 @@ export class AuthService {
         return response;
     }
 
-    async AdminRefreshToken(id: number, refreshToken: string, res: Response):Promise<ResponseFields> {
+    async AdminRefreshToken(
+        id: number,
+        refreshToken: string,
+        res: Response
+    ): Promise<ResponseFields> {
         const decodedToken = await this.jwtService.decode(refreshToken);
 
         if (id != decodedToken["id"]) {
@@ -237,7 +270,10 @@ export class AuthService {
             throw new BadRequestException("Admin not found");
         }
 
-        const tokenMatch = await bcrypt.compare(refreshToken, admin.hashed_refresh_token);
+        const tokenMatch = await bcrypt.compare(
+            refreshToken,
+            admin.hashed_refresh_token
+        );
 
         if (!tokenMatch) {
             throw new ForbiddenException("Forbidden");
@@ -262,5 +298,26 @@ export class AuthService {
         };
         return response;
     }
-    
+
+    async activate(link: string) {
+        if (!link) {
+            throw new BadRequestException("Activation link not found");
+        }
+        const updateUser = await this.prismaService.user.update({
+            where: {
+                activation_link: link,
+            },
+            data: { is_active: true },
+        });
+
+        if (!updateUser) {
+            throw new BadRequestException("User already activates");
+        }
+        const response = {
+            message: "User activated successfully",
+            is_active: updateUser.is_active,
+        };
+
+        return response;
+    }
 }
