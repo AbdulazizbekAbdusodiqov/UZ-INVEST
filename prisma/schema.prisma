@@ -48,16 +48,19 @@ model User {
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
   Invesment Invesment[]
+  Project   Project[]
+  Bids      Bids[]
 
   @@map("user")
 }
 
 model ProjectType {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   neme        String
   description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Project     Project[]
 
   @@map("project_type")
 }
@@ -85,7 +88,40 @@ model Invesment {
 }
 
 model PaymentMethod {
-  id             Int              @id @default(autoincrement())
-  name           String
+  id   Int    @id @default(autoincrement())
+  name String
+
   @@map("payment_method")
+}
+
+model Project {
+  id             Int         @id @default(autoincrement())
+  name           String
+  description    String
+  entreprenuerId Int
+  entreprenuer   User        @relation(fields: [entreprenuerId], references: [id])
+  project_typeId Int
+  project_type   ProjectType @relation(fields: [project_typeId], references: [id])
+  budged         Float
+  project_plan   String
+  logo           String
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  Bids           Bids[]
+
+  @@map("project")
+}
+
+model Bids {
+  id             Int      @id @default(autoincrement())
+  amount         Float
+  entreprenuerId Int
+  entreprenuer   User     @relation(fields: [entreprenuerId], references: [id])
+  description    String
+  projectId      Int
+  project        Project  @relation(fields: [projectId], references: [id])
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("bids")
 }
