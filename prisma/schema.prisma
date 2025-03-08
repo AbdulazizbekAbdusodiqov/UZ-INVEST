@@ -132,7 +132,7 @@ model Bids {
 }
 
 model Contract {
-  id                   Int                 @id @default(autoincrement())
+  id                   Int                @id @default(autoincrement())
   investorId           Int
   entrepreneurId       Int
   projectId            Int
@@ -146,20 +146,22 @@ model Contract {
   dividend_period      String?
   ownership_percentage Float?
   condation_file       String
-  investor             User                @relation(name: "InvestorRelation", fields: [investorId], references: [id])
-  entrepreneur         User                @relation(name: "EntrepreneurRelation", fields: [entrepreneurId], references: [id])
-  project              Project             @relation(fields: [projectId], references: [id])
-  bid                  Bids                @relation(fields: [bidId], references: [id])
-  profitType           ProfitType          @relation(fields: [profitTypeId], references: [id])
-  createdAt            DateTime            @default(now())
-  updatedAt            DateTime            @updatedAt
-  contractCondition    ContractCondition? 
+  investor             User               @relation(name: "InvestorRelation", fields: [investorId], references: [id])
+  entrepreneur         User               @relation(name: "EntrepreneurRelation", fields: [entrepreneurId], references: [id])
+  project              Project            @relation(fields: [projectId], references: [id])
+  bid                  Bids               @relation(fields: [bidId], references: [id])
+  profitType           ProfitType         @relation(fields: [profitTypeId], references: [id])
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  contractCondition    ContractCondition?
+  Payment              Payment[]
+
   @@map("contract")
 }
 
 model ContractCondition {
   id                Int      @id @default(autoincrement())
-  contractId        Int      @unique 
+  contractId        Int      @unique
   terminationFee    String
   disputeResolution String
   paymentTerms      String
@@ -169,4 +171,16 @@ model ContractCondition {
   updatedAt         DateTime @updatedAt
 
   @@map("contract_condition")
+}
+
+model Payment {
+  id         Int      @id @default(autoincrement())
+  amount     Float
+  contractId Int
+  status     String
+  contaract  Contract @relation(fields: [contractId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("payment")
 }
