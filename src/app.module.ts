@@ -9,6 +9,7 @@ import { ProjectTypeModule } from './project_type/project_type.module';
 import { AwsUploadModule } from './upload/aws_upload.module';
 import { ProjectModule } from './project/project.module';
 import { BidsModule } from './bids/bids.module';
+import { ContractModule } from './contract/contract.module';
 
 @Module({
     imports: [
@@ -22,6 +23,7 @@ import { BidsModule } from './bids/bids.module';
         AwsUploadModule,
         ProjectModule,
         BidsModule,
+        ContractModule,
     ],
     controllers: [],
     providers: [],

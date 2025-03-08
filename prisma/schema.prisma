@@ -45,11 +45,13 @@ model User {
   hashed_password      String
   hashed_refresh_token String?
 
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-  Invesment Invesment[]
-  Project   Project[]
-  Bids      Bids[]
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+  Invesment             Invesment[]
+  Project               Project[]
+  Bids                  Bids[]
+  investorContracts     Contract[]  @relation("InvestorRelation")
+  entrepreneurContracts Contract[]  @relation("EntrepreneurRelation")
 
   @@map("user")
 }
@@ -70,8 +72,9 @@ model ProfitType {
   neme        String
   description String
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Contract  Contract[]
 
   @@map("profit_type")
 }
@@ -108,20 +111,48 @@ model Project {
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
   Bids           Bids[]
+  Contract       Contract[]
 
   @@map("project")
 }
 
 model Bids {
-  id             Int      @id @default(autoincrement())
+  id             Int        @id @default(autoincrement())
   amount         Float
-  entreprenuerId Int
-  entreprenuer   User     @relation(fields: [entreprenuerId], references: [id])
+  investorId Int
+  investor   User       @relation(fields: [investorId], references: [id])
   description    String
   projectId      Int
-  project        Project  @relation(fields: [projectId], references: [id])
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  project        Project    @relation(fields: [projectId], references: [id])
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  Contract       Contract[]
 
   @@map("bids")
+}
+
+model Contract {
+  id                   Int        @id @default(autoincrement())
+  investorId           Int
+  entrepreneurId       Int
+  projectId            Int
+  bidId                Int
+  amount               Float
+  status               String
+  startDate            DateTime
+  endDate              DateTime
+  profitTypeId         Int
+  profitValue          Float
+  dividend_period      String?
+  ownership_percentage Float?
+  condation_file       String
+  investor             User       @relation(name: "InvestorRelation", fields: [investorId], references: [id])
+  entrepreneur         User       @relation(name: "EntrepreneurRelation", fields: [entrepreneurId], references: [id])
+  project              Project    @relation(fields: [projectId], references: [id])
+  bid                  Bids       @relation(fields: [bidId], references: [id])
+  profitType           ProfitType @relation(fields: [profitTypeId], references: [id])
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
+
+  @@map("contract")
 }

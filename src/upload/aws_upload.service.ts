@@ -11,7 +11,7 @@ export class AwsFileService {
 
     async uploadFile(file) {
         const { originalname } = file;
-
+        
         return await this.s3_upload(
             file.buffer,
             this.AWS_S3_BUCKET,

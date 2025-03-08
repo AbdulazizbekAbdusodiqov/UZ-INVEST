@@ -12,7 +12,7 @@ export class BidsService {
   }
 
   findAll() {
-    return this.prismaService.bids.findMany();
+    return this.prismaService.bids.findMany({include:{investor:true,project:true}});
   }
 
   findOne(id: number) {

@@ -9,7 +9,7 @@ export class CreateBidDto {
     @ApiProperty()
     @IsNumber()
     @IsNotEmpty()
-    entreprenuerId: number;
+    investorId: number;
     @ApiProperty()
     @IsNotEmpty()
     @IsString()
