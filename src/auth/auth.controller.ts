@@ -88,4 +88,9 @@ export class AuthController {
     return this.authService.AdminRefreshToken(+id, refreshToken, res)
   }
   
+  @Get('admin/activate/:link')
+  activateAdmin(@Param('link') link:string){
+    return this.authService.activate(link)
+  }
+  
 }

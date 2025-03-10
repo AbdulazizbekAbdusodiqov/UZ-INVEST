@@ -172,12 +172,18 @@ export class AuthService {
             createAdminDto.email
         );
         if (condiate) {
-            throw new BadRequestException("Bunday Admin mavjud");
+            throw new BadRequestException("Admin olready exists");
         }
         const newAdmin = await this.adminService.create(createAdminDto);
 
+        try {
+            await this.mailService.sendAdminMail(newAdmin);
+        } catch (error) {
+            console.log(error);
+            throw new InternalServerErrorException("Error sending message");
+        }
         const response = {
-            message: "Tabriklayman tizimga qo'shildingin",
+            message: "Congratulations, you have joined the system. We have sent an activation message to your email.",
             adminId: newAdmin.id,
         };
 
@@ -306,6 +312,7 @@ export class AuthService {
         const updateUser = await this.prismaService.user.update({
             where: {
                 activation_link: link,
+                is_active:false
             },
             data: { is_active: true },
         });
@@ -316,6 +323,29 @@ export class AuthService {
         const response = {
             message: "User activated successfully",
             is_active: updateUser.is_active,
+        };
+
+        return response;
+    }
+
+    async activateAdmin(link: string) {
+        if (!link) {
+            throw new BadRequestException("Activation link not found");
+        }
+        const updateAdmin = await this.prismaService.admin.update({
+            where: {
+                activation_link: link,
+                is_active:false
+            },
+            data: { is_active: true },
+        });
+
+        if (!updateAdmin) {
+            throw new BadRequestException("Admin already activates");
+        }
+        const response = {
+            message: "Admin activated successfully",
+            is_active: updateAdmin.is_active,
         };
 
         return response;
