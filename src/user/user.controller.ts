@@ -15,6 +15,16 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('entrepreneur')
+  findAllEntrepreneur() {
+    return this.userService.findAllEntrepreneur();
+  }
+
+  @Get('investor')
+  findAllInvestor() {
+    return this.userService.findAllInvestor();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
