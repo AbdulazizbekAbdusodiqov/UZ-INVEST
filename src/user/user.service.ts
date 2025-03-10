@@ -36,14 +36,29 @@ export class UserService {
         return this.prismaService.user.findMany();
     }
     findAllInvestor() {
-        return this.prismaService.user.findMany({where:{role:"INVESTOR"}, include:{Invesment:true, Bids:true}});
+        return this.prismaService.user.findMany({
+            where: { role: "INVESTOR" },
+            include: { Invesment: true, Bids: true },
+        });
     }
     findAllEntrepreneur() {
-        return this.prismaService.user.findMany({where:{role:"ENTREPRENEUR"}, include:{Project:true}});
+        return this.prismaService.user.findMany({
+            where: { role: "ENTREPRENEUR" },
+            include: { Project: true },
+        });
     }
 
     findOne(id: number) {
-        return this.prismaService.user.findUnique({ where: { id:+id } });
+        return this.prismaService.user.findUnique({
+            where: { id: +id },
+            include: {
+                Bids: true,
+                Invesment: true,
+                entrepreneurContracts: true,
+                investorContracts: true,
+                Project: true,
+            },
+        });
     }
     async findByEmail(email: string) {
         const user = await this.prismaService.user.findUnique({
@@ -75,7 +90,7 @@ export class UserService {
         const payload = {
             id: user.id,
             email: user.email,
-            role: user.role
+            role: user.role,
         };
         const [accessToken, refreshToken] = await Promise.all([
             this.jwtService.signAsync(payload, {
