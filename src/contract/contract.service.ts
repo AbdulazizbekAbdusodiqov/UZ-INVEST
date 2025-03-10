@@ -13,7 +13,6 @@ export class ContractService {
     ) {}
     async create(createContractDto: CreateContractDto, condation_file: any) {
         try {
-            console.log(createContractDto);
 
             const {
                 investorId,

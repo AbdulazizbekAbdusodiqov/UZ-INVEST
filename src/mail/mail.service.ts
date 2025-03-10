@@ -9,7 +9,6 @@ export class MailService {
 
     async sendMail(user: User) {
         const url = `${process.env.API_URL}/api/auth/activate/${user.activation_link}`;
-        console.log(url);
         await this.mailerService.sendMail({
             to: user.email,
             subject: `UZ-INVESTga hush kelibsiz!`,
@@ -22,7 +21,6 @@ export class MailService {
     }
     async sendAdminMail(admin: Admin) {
         const url = `${process.env.API_URL}/api/auth/admin/activate/${admin.activation_link}`;
-        console.log(url);
         await this.mailerService.sendMail({
             to: admin.email,
             subject: `UZ-INVESTga hush kelibsiz!`,

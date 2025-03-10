@@ -14,10 +14,12 @@ export class ProjectService {
     async create(
         createProjectDto: CreateProjectDto,
         project_plan: any,
-        logo: any
+        logo: any,
+        project_presentation:any
     ) {
         const resultPlan = await this.awsFileService.uploadFile(project_plan);
         const resultLogo = await this.awsFileService.uploadFile(logo);
+        const resultProjectPresentation = await this.awsFileService.uploadFile(project_presentation);
         const {entreprenuerId, project_typeId,budged, ...data} = createProjectDto
         return this.prismaService.project.create({
             data: {
@@ -27,6 +29,7 @@ export class ProjectService {
                 budged : +budged,
                 project_plan: resultPlan?.Location!,
                 logo: resultLogo?.Location!,
+                project_presentation: resultProjectPresentation?.Location!,
             },
         });
     }

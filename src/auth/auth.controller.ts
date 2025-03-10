@@ -33,6 +33,7 @@ export class AuthController {
     return this.authService.signIn(userSignInDto, res)
   }
   
+  @ApiOperation({ summary: "Foydalanuvchini tizimdan chiqarish" })
   @Get("sign-out")
   signout(
     @CookieGetter("refresh_token") refreshToken: string,
@@ -41,6 +42,7 @@ export class AuthController {
     return this.authService.signOut(refreshToken, res)
   }
   
+  @ApiOperation({ summary: "Foydalanuvchi tokenini yangilash" })
   @Get(":id/refresh")
   refresh(
     @Param("id") userId: number,
@@ -49,6 +51,8 @@ export class AuthController {
   ): Promise<ResponseFields>{
     return this.authService.refreshToken(userId, refreshToken, res)
   }
+  
+  @ApiOperation({ summary: "Foydalanuvchini aktivlashtirish" })
   @Get('activate/:link')
   activate(@Param('link') link:string){
     return this.authService.activate(link)
@@ -75,6 +79,7 @@ export class AuthController {
     return this.authService.adminSignIn(adminSignInDto, res)
   }
   
+  @ApiOperation({ summary: "Admin tizimdan chiqarish" })
   @Get("admin/sign-out")
   AdminSignout(
     @CookieGetter("refresh_token") refreshToken: string,
@@ -83,6 +88,7 @@ export class AuthController {
     return this.authService.AdminSignOut(refreshToken, res)
   }
   
+  @ApiOperation({ summary: "Admin tokenini yangilash" })
   @UseGuards(AdminGuard)
   @Get("admin/:id/refresh")
   AdminRefresh(
@@ -93,6 +99,7 @@ export class AuthController {
     return this.authService.AdminRefreshToken(+id, refreshToken, res)
   }
   
+  @ApiOperation({ summary: "Adminni aktivlashtirish" })
   @Get('admin/activate/:link')
   activateAdmin(@Param('link') link:string){
     return this.authService.activateAdmin(link)
