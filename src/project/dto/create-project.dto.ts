@@ -13,17 +13,17 @@ export class CreateProjectDto {
     description: string;
     
     @ApiProperty()
-    @IsNumber()
+    // @IsNumber()
     @IsNotEmpty()
     entreprenuerId: number;
     
     @ApiProperty()
-    @IsNumber()
+    // @IsNumber()
     @IsNotEmpty()
     project_typeId: number;
     
     @ApiProperty()
-    @IsNumber()
+    // @IsNumber()
     @IsNotEmpty()
     budged: number;
 }
