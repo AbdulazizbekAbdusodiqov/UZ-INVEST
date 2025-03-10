@@ -21,7 +21,7 @@ model Admin {
   phone_number         String
   tg_link              String
   is_active            Boolean @default(false)
-  is_creator           Boolean @default(true)
+  is_creator           Boolean @default(false)
   activation_link      String  @unique
   hashed_password      String
   hashed_refresh_token String?
@@ -57,12 +57,13 @@ model User {
 }
 
 model ProjectType {
-  id          Int       @id @default(autoincrement())
-  neme        String
+  id          Int         @id @default(autoincrement())
+  name        String
   description String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
   Project     Project[]
+  Invesment   Invesment[]
 
   @@map("project_type")
 }
@@ -80,12 +81,14 @@ model ProfitType {
 }
 
 model Invesment {
-  id         Int      @id @default(autoincrement())
-  investorId Int
-  amount     Float
-  investor   User     @relation(fields: [investorId], references: [id])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id            Int         @id @default(autoincrement())
+  investorId    Int
+  amount        Float
+  investor      User        @relation(fields: [investorId], references: [id])
+  projectTypeId Int
+  projectType   ProjectType @relation(fields: [projectTypeId], references: [id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 
   @@map("invesment")
 }

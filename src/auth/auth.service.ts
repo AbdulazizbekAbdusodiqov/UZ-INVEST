@@ -183,7 +183,8 @@ export class AuthService {
             throw new InternalServerErrorException("Error sending message");
         }
         const response = {
-            message: "Congratulations, you have joined the system. We have sent an activation message to your email.",
+            message:
+                "Congratulations, you have joined the system. We have sent an activation message to your email.",
             adminId: newAdmin.id,
         };
 
@@ -265,10 +266,9 @@ export class AuthService {
         refreshToken: string,
         res: Response
     ): Promise<ResponseFields> {
-        const decodedToken = await this.jwtService.decode(refreshToken);
-
+        const decodedToken = await this.jwtService.decode(refreshToken);        
         if (id != decodedToken["id"]) {
-            throw new BadRequestException("Ruxsat etilmagan");
+            throw new BadRequestException("Not allowed");
         }
 
         const admin = await this.adminService.findOne(+id);
@@ -309,10 +309,18 @@ export class AuthService {
         if (!link) {
             throw new BadRequestException("Activation link not found");
         }
+        const user = await await this.prismaService.user.findUnique({
+            where: { activation_link: link },
+        });
+        if (!user) {
+            throw new BadRequestException("User not found");
+        }
+        if (user.is_active) {
+            throw new BadRequestException("User already activates");
+        }
         const updateUser = await this.prismaService.user.update({
             where: {
                 activation_link: link,
-                is_active:false
             },
             data: { is_active: true },
         });
@@ -332,10 +340,18 @@ export class AuthService {
         if (!link) {
             throw new BadRequestException("Activation link not found");
         }
+        const admin = await this.prismaService.admin.findUnique({
+            where: { activation_link: link },
+        });
+        if (!admin) {
+            throw new BadRequestException("Admin not found");
+        }
+        if (admin.is_active) {
+            throw new BadRequestException("Admin already activates");
+        }
         const updateAdmin = await this.prismaService.admin.update({
             where: {
                 activation_link: link,
-                is_active:false
             },
             data: { is_active: true },
         });
