@@ -45,13 +45,15 @@ model User {
   hashed_password      String
   hashed_refresh_token String?
 
-  createdAt             DateTime    @default(now())
-  updatedAt             DateTime    @updatedAt
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
   Invesment             Invesment[]
   Project               Project[]
   Bids                  Bids[]
-  investorContracts     Contract[]  @relation("InvestorRelation")
-  entrepreneurContracts Contract[]  @relation("EntrepreneurRelation")
+  investorContracts     Contract[]    @relation("InvestorRelation")
+  entrepreneurContracts Contract[]    @relation("EntrepreneurRelation")
+  reseiverTransaction   Transaction[] @relation("ReceiverRelation")
+  senderTransaction     Transaction[] @relation("SenderRelation")
 
   @@map("user")
 }
@@ -94,8 +96,9 @@ model Invesment {
 }
 
 model PaymentMethod {
-  id   Int    @id @default(autoincrement())
-  name String
+  id          Int           @id @default(autoincrement())
+  name        String
+  Transaction Transaction[]
 
   @@map("payment_method")
 }
@@ -158,6 +161,7 @@ model Contract {
   updatedAt            DateTime           @updatedAt
   contractCondition    ContractCondition?
   Payment              Payment[]
+  Transaction          Transaction[]
 
   @@map("contract")
 }
@@ -186,4 +190,23 @@ model Payment {
   updatedAt  DateTime @updatedAt
 
   @@map("payment")
+}
+
+model Transaction {
+  id              Int           @id @default(autoincrement())
+  contractId      Int
+  contarct        Contract      @relation(fields: [contractId], references: [id])
+  receiverId      Int
+  senderID        Int
+  receiver        User          @relation(name: "ReceiverRelation", fields: [receiverId], references: [id])
+  sender          User          @relation(name: "SenderRelation", fields: [senderID], references: [id])
+  amount          Float
+  type            String
+  status          String
+  paymentMethodId Int
+  paymnetMethod   PaymentMethod @relation(fields: [paymentMethodId], references: [id])
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@map("transaction")
 }
