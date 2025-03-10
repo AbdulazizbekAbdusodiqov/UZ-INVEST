@@ -26,7 +26,7 @@ export class CreateTransactionDto {
     @ApiProperty()
     @IsNumber()
     @IsNotEmpty()
-    senderID: number;
+    senderId: number;
     
     @ApiProperty()
     @IsNumber()

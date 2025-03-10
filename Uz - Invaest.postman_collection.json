@@ -1,0 +1,2171 @@
+{
+	"info": {
+		"_postman_id": "ec19e91f-65b8-459f-ae14-1a0259b76aef",
+		"name": "Uz - Invaest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38952921"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get oen",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"role\":\"INVESTOR\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "admin sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/admin/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin sign-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/admin/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin sign-out",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsImlhdCI6MTc0MTU4MDE3OSwiZXhwIjoxNzQxNjM0MTc5fQ.MyqGIjW_EnpV6SNOszOyEWncyr6JzmV5fWK7Vkxgd0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"abdulazizbekabdusodiqovv@gmail.com\",\n  \"role\":\"INVESTOR\",\n  \"password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/admin/sign-out",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"sign-out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin refresh token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/admin/1/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"1",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Abdulazizbek\",\n  \"last_name\": \"Abdusodiqov\",\n  \"email\": \"abdulazizbekabdusodiqov@gmail.com\",\n  \"tg_link\":\"@abdulazizbek_coder\",\n  \"phone_number\": \"998937252606\",\n  \"role\":\"ENTREPRENEUR\",\n  \"password\": \"parol\",\n  \"confirm_password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user sign-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"abdusodiqovabdulazizbek@gmail.com\",\n  \"role\":\"INVESTOR\",\n  \"password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user sign-out",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"abdulazizbekabdusodiqovv@gmail.com\",\n  \"role\":\"INVESTOR\",\n  \"password\": \"parol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/sign-out",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"sign-out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user refresh token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/3/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"3",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project type",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNDQ0MiwiZXhwIjoxNzQxNjg4NDQyfQ.e-gAKCX5whB-tjwKSMjCOz4lSYDBfxSSKCn9XZOiNtc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"software\",\n    \"description\": \"Dasturiy ta'minot loyihasi, masalan, veb ilova yoki mobil ilova\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"software\",\n    \"description\": \"Dasturiy ta'minot loyihasi, masalan, veb ilova yoki mobil ilova\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNDQ0MiwiZXhwIjoxNzQxNjg4NDQyfQ.e-gAKCX5whB-tjwKSMjCOz4lSYDBfxSSKCn9XZOiNtc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"software\",\n    \"description\": \"Dasturiy ta'minot loyihasi, masalan, veb ilova yoki mobil ilova\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"software\",\n    \"description\": \"Dasturiy ta'minot loyihasi, masalan, veb ilova yoki mobil ilova\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"software\",\n    \"description\": \"Dasturiy ta'minot loyihasi, masalan, veb ilova yoki mobil ilova\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profit_type",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNDQ0MiwiZXhwIjoxNzQxNjg4NDQyfQ.e-gAKCX5whB-tjwKSMjCOz4lSYDBfxSSKCn9XZOiNtc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"hybrid\",\n    \"description\": \"Bir nechta daromad usullarini o‘z ichiga oladi, masalan, belgilangan daromad va foiz asosidagi daromad. Bu foyda taqsimotida ham barqarorlik, ham o‘sish imkoniyatini ta’minlaydi. That combines multiple earning methods, such as fixed income and percentage-based returns. This allows for a balanced approach to profit distribution, ensuring both stability and growth potential.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/profit-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"profit-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"hybrid\",\n    \"description\": \"Bir nechta daromad usullarini o‘z ichiga oladi, masalan, belgilangan daromad va foiz asosidagi daromad. Bu foyda taqsimotida ham barqarorlik, ham o‘sish imkoniyatini ta’minlaydi. That combines multiple earning methods, such as fixed income and percentage-based returns. This allows for a balanced approach to profit distribution, ensuring both stability and growth potential.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/profit-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"profit-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"hybrid\",\n    \"description\": \"Bir nechta daromad usullarini o‘z ichiga oladi, masalan, belgilangan daromad va foiz asosidagi daromad. Bu foyda taqsimotida ham barqarorlik, ham o‘sish imkoniyatini ta’minlaydi. That combines multiple earning methods, such as fixed income and percentage-based returns. This allows for a balanced approach to profit distribution, ensuring both stability and growth potential.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/profit-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"profit-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"hybrid\",\n    \"description\": \"Bir nechta daromad usullarini o‘z ichiga oladi, masalan, belgilangan daromad va foiz asosidagi daromad. Bu foyda taqsimotida ham barqarorlik, ham o‘sish imkoniyatini ta’minlaydi. That combines multiple earning methods, such as fixed income and percentage-based returns. This allows for a balanced approach to profit distribution, ensuring both stability and growth potential.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/profit-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"profit-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"hybrid\",\n    \"description\": \"Bir nechta daromad usullarini o‘z ichiga oladi, masalan, belgilangan daromad va foiz asosidagi daromad. Bu foyda taqsimotida ham barqarorlik, ham o‘sish imkoniyatini ta’minlaydi. That combines multiple earning methods, such as fixed income and percentage-based returns. This allows for a balanced approach to profit distribution, ensuring both stability and growth potential.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/profit-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"profit-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment method",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"COMPLATED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment-method",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment-method"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment-method/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment-method",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment-method",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment-method"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment-method/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment-method",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU4MDM1MSwiZXhwIjoxNzQxNjM0MzUxfQ.hdGxDwPcQaEOiDmpKGUJC3r9bo5JdAJAb7Abnvlq2lE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"success\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment-method/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment-method",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invesment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investorId\":1,\n    \"amount\":12345.12,\n    \"projectTypeId\":1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/invesment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"invesment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investorId\":1,\n    \"amount\":12345.12,\n    \"projectTypeId\":1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/invesment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"invesment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investorId\":1,\n    \"amount\":12345.12,\n    \"projectTypeId\":1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/invesment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"invesment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investorId\":1,\n    \"amount\":12345.12,\n    \"projectTypeId\":1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/invesment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"invesment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investorId\":1,\n    \"amount\":12345.12,\n    \"projectTypeId\":1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/invesment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"invesment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_plan",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/abdulazizbek/Pictures/Screenshots/Screenshot from 2025-03-10 16-22-32.png"
+								},
+								{
+									"key": "name",
+									"value": "Uz-Inest",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "yaxshi loyiha",
+									"type": "text"
+								},
+								{
+									"key": "entreprenuerId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "project_typeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "budged",
+									"value": "12343234",
+									"type": "text"
+								},
+								{
+									"key": "project_presentation",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_plan",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/abdulazizbek/Pictures/Screenshots/Screenshot from 2025-03-07 17-09-48.png"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "entreprenuerId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_typeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "budged",
+									"value": "12343234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_plan",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/abdulazizbek/Pictures/Screenshots/Screenshot from 2025-03-07 17-09-48.png"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "entreprenuerId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_typeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "budged",
+									"value": "12343234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_plan",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/abdulazizbek/Pictures/Screenshots/Screenshot from 2025-03-07 17-09-48.png"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "entreprenuerId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_typeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "budged",
+									"value": "12343234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_plan",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/abdulazizbek/Pictures/Screenshots/Screenshot from 2025-03-07 17-09-48.png"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "entreprenuerId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_typeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "budged",
+									"value": "12343234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bids",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"projectId\": 1,\n    \"investorId\": 1,\n    \"amount\":12343234,\n    \"description\":\"loyihangiz menga juda yoqdi oq ko'ngil inson\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/bids",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTU5OTA0NywiZXhwIjoxNzQxNjUzMDQ3fQ.gTeTBHMJoWqk5MhtniBRh9Vc--OwjOFEt7yrdxZ4sqs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"test\",\n    \"description\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/bids",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find one",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"neme\": \"test\",\n    \"description\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/bids/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bids",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contract",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "condition_file",
+									"type": "file",
+									"src": "/home/abdulazizbek/Desktop/Resume Abdusodiqov Abdulazizbek.pdf"
+								},
+								{
+									"key": "investorId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "entrepreneurId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "projectId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "bidId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "pending",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "09.03.2025",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "09.03.2026",
+									"type": "text"
+								},
+								{
+									"key": "profitTypeId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "profitValue",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "ownership_percentage",
+									"value": "1234432",
+									"type": "text"
+								},
+								{
+									"key": "dividend_period",
+									"value": "month",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/contract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/contract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"contract"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contarct condition",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractId\":1,\n    \"terminationFee\":\"asdfds\",\n    \"disputeResolution\":\"sdffsd\",\n    \"paymentTerms\":\"sadsfsgfsdsf\",\n    \"penaltyTerms\":\"sadfsfdsgfdsd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/contract-condition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"contract-condition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractId\":7,\n    \"terminationFee\":\"asdfds\",\n    \"disputeResolution\":\"sdffsd\",\n    \"paymentTerms\":\"sadsfsgfsdsf\",\n    \"penaltyTerms\":\"sadfsfdsgfdsd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/contract-condition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"contract-condition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":234432234,\n    \"contractId\":1,\n    \"status\":\"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":234432234,\n    \"contractId\":1,\n    \"status\":\"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contractId\": 1,\n    \"receiverId\": 1,\n    \"senderId\": 2,\n    \"amount\": 123454.12,\n    \"type\": \"INVESTMENT\",\n    \"status\": \"PENDING\",\n    \"paymentMethodId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJlbWFpbCI6ImFiZHVsYXppemJla2FiZHVzb2RpcW92QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0MTYzNTcxMSwiZXhwIjoxNzQxNjg5NzExfQ.YU3loaYuUyjhsLsdrrScwI64cmcMuKfdXmC_FRymIXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":234432234,\n    \"contractId\":1,\n    \"status\":\"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

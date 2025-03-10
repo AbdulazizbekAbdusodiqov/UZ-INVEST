@@ -31,6 +31,7 @@ export class CreateAdminDto {
     @IsString()
     @IsNotEmpty()
     password:string
+    
     @ApiProperty()
     confirm_password:string
 }

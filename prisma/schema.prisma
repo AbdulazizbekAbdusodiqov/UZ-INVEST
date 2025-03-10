@@ -21,7 +21,7 @@ model Admin {
   phone_number         String
   tg_link              String
   is_active            Boolean @default(false)
-  is_creator           Boolean @default(false)
+  is_creator           Boolean @default(true)
   activation_link      String  @unique
   hashed_password      String
   hashed_refresh_token String?
@@ -104,20 +104,21 @@ model PaymentMethod {
 }
 
 model Project {
-  id             Int         @id @default(autoincrement())
-  name           String
-  description    String
-  entreprenuerId Int
-  entreprenuer   User        @relation(fields: [entreprenuerId], references: [id])
-  project_typeId Int
-  project_type   ProjectType @relation(fields: [project_typeId], references: [id])
-  budged         Float
-  project_plan   String
-  logo           String
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
-  Bids           Bids[]
-  Contract       Contract[]
+  id                   Int         @id @default(autoincrement())
+  name                 String
+  description          String
+  entreprenuerId       Int
+  entreprenuer         User        @relation(fields: [entreprenuerId], references: [id])
+  project_typeId       Int
+  project_type         ProjectType @relation(fields: [project_typeId], references: [id])
+  budged               Float
+  project_plan         String
+  logo                 String
+  project_presentation String
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+  Bids                 Bids[]
+  Contract             Contract[]
 
   @@map("project")
 }
@@ -197,9 +198,9 @@ model Transaction {
   contractId      Int
   contarct        Contract      @relation(fields: [contractId], references: [id])
   receiverId      Int
-  senderID        Int
+  senderId        Int
   receiver        User          @relation(name: "ReceiverRelation", fields: [receiverId], references: [id])
-  sender          User          @relation(name: "SenderRelation", fields: [senderID], references: [id])
+  sender          User          @relation(name: "SenderRelation", fields: [senderId], references: [id])
   amount          Float
   type            String
   status          String
