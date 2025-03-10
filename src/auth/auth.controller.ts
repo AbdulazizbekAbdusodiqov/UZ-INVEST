@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiOperation } from '@nestjs/swagger';
 import { CreateUserDto } from '../user/dto/create-user.dto';
@@ -7,6 +7,8 @@ import { UserSignInDto } from '../user/dto';
 import { ResponseFields } from '../types';
 import { CookieGetter } from '../decorators/cookie-getter.decorator';
 import { AdminSignInDto, CreateAdminDto } from '../admin/dto';
+import { AdminGuard } from '../guards/admin.guard';
+import { SuperAdminGuard } from '../guards/superAdmin.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -47,11 +49,16 @@ export class AuthController {
   ): Promise<ResponseFields>{
     return this.authService.refreshToken(userId, refreshToken, res)
   }
-  
+  @Get('activate/:link')
+  activate(@Param('link') link:string){
+    return this.authService.activate(link)
+  }
   //=================================  For Admin ============================================
   
 
+
   @ApiOperation({ summary: "Yangi admin ro'yxatdan o'tkazish" })
+  @UseGuards(AdminGuard, SuperAdminGuard)
   @Post('admin/sign-up')
   signUpAdmin(@Body() createAdminDto: CreateAdminDto) {
     return this.authService.adminSignUp(createAdminDto)
@@ -67,7 +74,7 @@ export class AuthController {
   ):Promise<ResponseFields> {
     return this.authService.adminSignIn(adminSignInDto, res)
   }
-
+  
   @Get("admin/sign-out")
   AdminSignout(
     @CookieGetter("refresh_token") refreshToken: string,
@@ -75,14 +82,20 @@ export class AuthController {
   ) {
     return this.authService.AdminSignOut(refreshToken, res)
   }
-
+  
+  @UseGuards(AdminGuard)
   @Get("admin/:id/refresh")
   AdminRefresh(
     @Param('id') id: number,
     @CookieGetter("refresh_token") refreshToken: string,
     @Res({ passthrough: true }) res: Response
-  ):Promise<ResponseFields> {
+  ):Promise<ResponseFields> {    
     return this.authService.AdminRefreshToken(+id, refreshToken, res)
+  }
+  
+  @Get('admin/activate/:link')
+  activateAdmin(@Param('link') link:string){
+    return this.authService.activateAdmin(link)
   }
   
 }

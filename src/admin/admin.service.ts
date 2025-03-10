@@ -67,6 +67,7 @@ export class AdminService {
             is_active: admin.is_active,
             is_creator: admin.is_creator,
             email: admin.email,
+            role:"admin"
         };
         const [accessToken, refreshToken] = await Promise.all([
             this.jwtService.signAsync(payload, {
