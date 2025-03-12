@@ -44,4 +44,12 @@ export class ProjectTypeController {
   remove(@Param('id') id: string) {
     return this.projectTypeService.remove(+id);
   }
+
+  @ApiOperation({ summary: 'Get top project types' })
+  @UseGuards(AdminGuard)
+  @Get('top-project-types')
+  findTopProjectTypes() {
+    return this.projectTypeService.findTopProjectTypes();
+  }
+
 }
