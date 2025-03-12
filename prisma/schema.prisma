@@ -33,18 +33,19 @@ model Admin {
 }
 
 model User {
-  id                   Int     @id @default(autoincrement())
-  first_name           String
-  last_name            String
-  email                String  @unique
-  phone_number         String
-  role                 String
-  tg_link              String
-  is_active            Boolean @default(false)
-  activation_link      String  @unique
-  hashed_password      String
-  hashed_refresh_token String?
-
+  id                    Int           @id @default(autoincrement())
+  first_name            String
+  last_name             String
+  email                 String        @unique
+  phone_number          String
+  role                  String
+  tg_link               String
+  countryId             Int           @default(2)
+  country               Country       @relation(fields: [countryId], references: [id])
+  is_active             Boolean       @default(false)
+  activation_link       String        @unique
+  hashed_password       String
+  hashed_refresh_token  String?
   createdAt             DateTime      @default(now())
   updatedAt             DateTime      @updatedAt
   Invesment             Invesment[]
@@ -210,4 +211,14 @@ model Transaction {
   updatedAt       DateTime      @updatedAt
 
   @@map("transaction")
+}
+
+model Country {
+  id        Int      @id @default(autoincrement())
+  name      String
+  User      User[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("country")
 }
