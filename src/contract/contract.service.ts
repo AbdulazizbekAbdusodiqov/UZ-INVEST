@@ -13,7 +13,6 @@ export class ContractService {
     ) {}
     async create(createContractDto: CreateContractDto, condation_file: any) {
         try {
-
             const {
                 investorId,
                 projectId,
@@ -76,11 +75,29 @@ export class ContractService {
                 project: true,
                 contractCondition: true,
                 profitType: true,
-                Payment:true
+                Payment: true,
+            },
+        });
+    }
+    async findAllFinishedOrCanceledContacts() {
+        return await this.prismaService.contract.findMany({
+            where: {
+                OR: [
+                    { status: "REJECTED" },
+                    { status: "APPROVED", endDate: { lt: new Date() } },
+                ],
             },
         });
     }
 
+    async findUpcomingApprovedContracts() {
+        return await this.prismaService.contract.findMany({
+            where: {
+                status: 'APPROVED',
+                startDate: { gt: new Date() }
+            }
+        });
+    }
     async findOne(id: number) {
         return await this.prismaService.contract.findUnique({ where: { id } });
     }
