@@ -46,4 +46,21 @@ export class ContractController {
   remove(@Param('id') id: string) {
     return this.contractService.remove(+id);
   }
+  
+  //muddati tugagan yoki rad etilgan kontraktlar
+  @ApiOperation({ summary: 'Get all finished or canceled contracts' })
+  @UseGuards(AdminGuard)
+  @Get('finished-or-canceled')
+  findAllFinishedOrCanceledContacts() {
+    return this.contractService.findAllFinishedOrCanceledContacts();
+  }
+
+  //Kelajakda boshlanadigan kontraktlar
+  @ApiOperation({ summary: 'Get all upcoming approved contracts' })
+  @UseGuards(AdminGuard)
+  @Get('upcoming-approved')
+  findUpcomingApprovedContracts() {
+    return this.contractService.findUpcomingApprovedContracts();
+  }
+
 }

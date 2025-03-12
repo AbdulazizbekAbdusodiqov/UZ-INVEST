@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Type } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class CreateProjectDto {
@@ -13,17 +14,20 @@ export class CreateProjectDto {
     description: string;
     
     @ApiProperty()
-    // @IsNumber()
+    @Type(()=>Number)
+    @IsNumber()
     @IsNotEmpty()
     entreprenuerId: number;
     
     @ApiProperty()
-    // @IsNumber()
+    @Type(()=>Number)
+    @IsNumber()
     @IsNotEmpty()
     project_typeId: number;
     
     @ApiProperty()
-    // @IsNumber()
+    @Type(()=>Number)
+    @IsNumber()
     @IsNotEmpty()
     budged: number;
 }
