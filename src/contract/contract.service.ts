@@ -98,6 +98,8 @@ export class ContractService {
             }
         });
     }
+
+
     async findOne(id: number) {
         return await this.prismaService.contract.findUnique({ where: { id } });
     }
