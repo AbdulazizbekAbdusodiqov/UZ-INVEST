@@ -16,6 +16,7 @@ import { MailModule } from './mail/mail.module';
 import { PaymentMethodModule } from "./payment_method/payment_method.module";
 import { InvesmentModule } from './invesment/invesment.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { CountryModule } from './country/country.module';
 
 @Module({
     imports: [
@@ -35,7 +36,8 @@ import { TransactionModule } from './transaction/transaction.module';
         MailModule,
         PaymentMethodModule,
         InvesmentModule,
-        TransactionModule
+        TransactionModule,
+        CountryModule
     ],
     controllers: [],
     providers: [],
