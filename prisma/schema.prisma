@@ -40,7 +40,7 @@ model User {
   phone_number          String?
   role                  String
   tg_link               String?
-  countryId             Int?           @default(2)
+  countryId             Int?           
   country               Country?       @relation(fields: [countryId], references: [id])
   is_active             Boolean       @default(false)
   activation_link       String       @unique
