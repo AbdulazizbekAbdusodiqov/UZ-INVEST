@@ -37,13 +37,13 @@ model User {
   first_name            String
   last_name             String
   email                 String        @unique
-  phone_number          String
+  phone_number          String?
   role                  String
-  tg_link               String
-  countryId             Int           @default(2)
-  country               Country       @relation(fields: [countryId], references: [id])
+  tg_link               String?
+  countryId             Int?           @default(2)
+  country               Country?       @relation(fields: [countryId], references: [id])
   is_active             Boolean       @default(false)
-  activation_link       String        @unique
+  activation_link       String       @unique
   hashed_password       String
   hashed_refresh_token  String?
   createdAt             DateTime      @default(now())
