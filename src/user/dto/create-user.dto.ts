@@ -28,20 +28,20 @@ export class CreateUserDto {
     @IsNotEmpty()
     email: string;
 
-    @ApiProperty()
-    @IsPhoneNumber("UZ")
-    @IsNotEmpty()
-    phone_number: string;
+    // @ApiProperty()
+    // @IsPhoneNumber("UZ")
+    // @IsNotEmpty()
+    // phone_number: string;
 
     @ApiProperty({ enum: Role, description: "enum: INVESTOR and ENTREPRENEUR" })
     @IsNotEmpty()
     @IsEnum(Role)
     role: Role;
 
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    tg_link: string;
+    // @ApiProperty()
+    // @IsString()
+    // @IsNotEmpty()
+    // tg_link: string;
 
     @ApiProperty()
     @IsString()
