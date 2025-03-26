@@ -19,6 +19,9 @@ export class UserService {
         if (password != confirm_password) {
             throw new BadRequestException("Passwords did not match");
         }
+        if(await this.prismaService.user.findUnique({where:{email:createUserDto.email}})){
+            throw new BadRequestException("this email already exists");
+        }
         const activation_link = uuidv4();
         const hashed_password = await bcrypt.hash(password, 7);
 
