@@ -54,8 +54,12 @@ export class AuthController {
   
   @ApiOperation({ summary: "Foydalanuvchini aktivlashtirish" })
   @Get('activate/:link')
-  activate(@Param('link') link:string){
+  activate(
+    @Param('link') link:string,
+  //  @Res({ passthrough: true }) res: Response
+  ){
     return this.authService.activate(link)
+    // return res.redirect('https://youtube.com');
   }
   //=================================  For Admin ============================================
   
